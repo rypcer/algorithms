@@ -10,7 +10,7 @@
  Manually you would print it like this:
  a[2]= 3, a[3]= 4, a[4]= 5, a[0]= 1 
 """
-
+# Gets the number/length of elements inbetween that range
 def getRangeCount(startIndex,endIndex,arrayLen):
     
     if startIndex > endIndex:
