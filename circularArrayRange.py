@@ -1,36 +1,45 @@
-def getRange(startIndex,endIndex,arrayLen):
+def getRangeCount(startIndex,endIndex,arrayLen):
     
     if startIndex > endIndex:
-        return arrayLen-startIndex+1+endIndex
+        return arrayLen-startIndex+1+endIndex;
     else:
         return endIndex-startIndex+1;
 
+# Returns array of in Range values
+def getRangedValues(startIndex,endIndex,array,inverse = 0):
+    
+    arrayLen = len(array);
+    
+    if inverse:
+        istartIndex = endIndex+1%arrayLen;
+        endIndex = startIndex-1%arrayLen;
+        startIndex = istartIndex;
+        rangeLen = getRangeCount(startIndex,endIndex,arrayLen);
+    else:
+        rangeLen = getRangeCount(startIndex,endIndex,arrayLen);
 
-def printRange(rangeLen,startIndex,arrayLen,array):
+    rangedValues = [0]*rangeLen;
+    # Extract Values    
     i = 0;
     while(i<rangeLen):
-        print(array[startIndex%arrayLen])
+        rangedValues[i]=array[startIndex%arrayLen];
         startIndex +=1;
         i+=1;
+    return rangedValues;
 
+#--------------------
 
+        
 a =  [1,2,3,4,5]
-aLen = len(a);
+
 
 startIndex = 1;
 endIndex = 3;
 
-inverseStartIndex = endIndex+1%aLen;
-inverseEndIndex = startIndex-1%aLen;
-
-# Get Range Count
-rangeLen = getRange(startIndex,endIndex,aLen);
-inverseRangeLen = getRange(inverseStartIndex,inverseEndIndex,aLen)
 
 # Print Array Ranges
-printRange(rangeLen,startIndex,aLen,a);
-print();
-printRange(inverseRangeLen,inverseStartIndex,aLen,a);
+for i in getRangedValues(startIndex,endIndex,a):
+    print(i);
 
 
 
