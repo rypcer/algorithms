@@ -1,3 +1,16 @@
+"""
+ This algorithm extracts the elements which are in Range of a start and end Index
+ Range Indices can be wrapped around the array like a circular array
+ This could be used in the Kfold algorithm 
+ -----------------------------------------
+ Example: a = [1,2,3,4,5] 
+ Print Index Range 2 - 0 
+ Output: 3,4,5,1 
+ -----------------------------------------
+ Manually you would print it like this:
+ a[2]= 3, a[3]= 4, a[4]= 5, a[0]= 1 
+"""
+
 def getRangeCount(startIndex,endIndex,arrayLen):
     
     if startIndex > endIndex:
@@ -27,19 +40,22 @@ def getRangedValues(startIndex,endIndex,array,inverse = 0):
         i+=1;
     return rangedValues;
 
-#--------------------
-
+#-------------------- Main ------------------- 
         
-a =  [1,2,3,4,5]
-
+a =  [1,2,3,4,5];
 
 startIndex = 1;
 endIndex = 3;
 
-
 # Print Array Ranges
 for i in getRangedValues(startIndex,endIndex,a):
-    print(i);
+    print(i,end=' ');
+print("\n");
+# Print Inverse of Array Range
+for i in getRangedValues(startIndex,endIndex,a,1):
+    print(i,end=' ');
 
-
+# Output:
+# In Range: 2 3 4
+# Out Range: 5 1
 
