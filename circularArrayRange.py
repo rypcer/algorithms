@@ -12,11 +12,7 @@
 """
 # Gets the number/length of elements inbetween that range
 def getRangeCount(startIndex,endIndex,arrayLen):
-    
-    if startIndex > endIndex:
-        return arrayLen-startIndex+1+endIndex;
-    else:
-        return endIndex-startIndex+1;
+    return (endIndex-startIndex+arrayLen) % arrayLen +1
 
 # Returns array of in Range values
 def getRangedValues(startIndex,endIndex,array,inverse = 0):
@@ -58,4 +54,3 @@ for i in getRangedValues(startIndex,endIndex,a,1):
 # Output:
 # In Range: 2 3 4
 # Out Range: 5 1
-
