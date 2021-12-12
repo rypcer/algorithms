@@ -23,9 +23,8 @@ def getRangedValues(startIndex,endIndex,array,inverse = 0):
         istartIndex = endIndex+1%arrayLen;
         endIndex = startIndex-1%arrayLen;
         startIndex = istartIndex;
-        rangeLen = getRangeCount(startIndex,endIndex,arrayLen);
-    else:
-        rangeLen = getRangeCount(startIndex,endIndex,arrayLen);
+
+    rangeLen = getRangeCount(startIndex,endIndex,arrayLen);
 
     rangedValues = [0]*rangeLen;
     # Extract Values    
